@@ -63,7 +63,9 @@ func main() {
 	fmt.Println(fromSlice)
 	fmt.Println(toSlice)
 
-	iniArray := [...]int{1, 2, 3, 4, 5}
+	//array vs slice
+
+	iniArray := [...]int{1, 2, 3, 4, 5} 
 	iniSlice := []int{1, 2, 3, 4, 5}
 
 	fmt.Println(iniArray)
