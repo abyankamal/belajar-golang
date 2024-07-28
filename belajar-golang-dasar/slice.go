@@ -33,6 +33,8 @@ func main() {
 	fmt.Println(daySlice2)
 	fmt.Println(days)
 
+	// make slice
+
 	var newSlice []string = make([]string, 2, 5)
 	newSlice[0] = "Eko"
 	newSlice[1] = "Eko"
@@ -50,6 +52,8 @@ func main() {
 	newSlice2[0] = "Budi"
 	fmt.Println(newSlice2)
 	fmt.Println(newSlice)
+
+	// copy slice
 
 	fromSlice := days[:]
 	toSlice := make([]string, len(fromSlice), cap(fromSlice))
