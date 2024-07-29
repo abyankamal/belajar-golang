@@ -16,15 +16,18 @@ func main() {
 
 	fmt.Println("Selesai")
 
+	// perulangan manual
 	names := []string{"Eko", "Kurniawan", "Khannedy"}
 	for i := 0; i < len(names); i++ {
 		fmt.Println(names[i])
 	}
 
+	// perulangan otomatis
 	for index, name := range names {
 		fmt.Println("Index", index, "=", name)
 	}
 
+	// perulangan tanpa index
 	for _, name := range names {
 		fmt.Println(name)
 	}
