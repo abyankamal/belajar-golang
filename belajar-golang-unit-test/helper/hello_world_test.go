@@ -2,11 +2,46 @@ package helper
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestSubTest(t *testing.T) {
+	t.Run("Muhammad", func(t *testing.T) {
+		result := SayHello("Muhammad")
+		require.Equal(t, "Hello Muhammad", result, "Result must be 'Hello Muhammad'")
+	})
+	t.Run("Abyan", func(t *testing.T) {
+		result := SayHello("Abyan")
+		require.Equal(t, "Hello Abyan", result, "Result must be 'Hello Abyan'")
+	})
+	t.Run("Kamal", func(t *testing.T) {
+		result := SayHello("Kamal")
+		require.Equal(t, "Hello Kamal", result, "Result must be 'Hello Kamal'")
+	})
+}
+
+func TestMain(m *testing.M) {
+	// before
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run()
+
+	// after
+	fmt.Println("AFTER UNIT TEST")
+}
+
+func TestSkip(t *testing.T) {
+    if runtime.GOOS == "darwin" {
+        t.Skip("This test is only for Windows")
+    }
+
+    result := SayHello("World")
+    require.Equal(t, "Hello World", result, "They Should Be Equal")
+}
 
 func TestSayHelloAssertion(t *testing.T) {
     result := SayHello("World")
