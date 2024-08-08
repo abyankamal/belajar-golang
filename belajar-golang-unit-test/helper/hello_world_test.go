@@ -2,6 +2,7 @@ package helper
 
 import (
 	"fmt"
+	"math/rand"
 	"runtime"
 	"testing"
 
@@ -9,7 +10,88 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestTableHelloWorld(t *testing.T) {
+func generateRandomSlice(size int) []int {
+	slice := make([]int, size)
+	for i := 0; i < size; i++ {
+		slice[i] = rand.Intn(1000) // Generate random integers between 0 and 999
+	}
+	return slice
+}
+
+func BenchmarkBubbleSort(b *testing.B) {
+	sizes := []int{10, 100, 1000, 10000}
+
+	for _, size := range sizes {
+		b.Run(fmt.Sprintf("size_%d", size), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				b.StopTimer()
+				slice := generateRandomSlice(size)
+				b.StartTimer()
+
+				BubbleSort(slice)
+			}
+		})
+	}
+}
+
+func BenchmarkTable(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Eko",
+			request: "Eko",
+		},
+		{
+			name:    "Kurniawan",
+			request: "Kurniawan",
+		},
+		{
+			name:    "EkoKurniawanKhannedy",
+			request: "Eko Kurniawan Khannedy",
+		},
+		{
+			name:    "Budi",
+			request: "Budi Nugraha",
+		},
+	}
+
+	for _, benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				SayHello(benchmark.request)
+			}
+		})
+	}
+}
+
+func BenchmarkSub(b *testing.B) {
+	b.Run("Eko", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			SayHello("Eko")
+		}
+	})
+	b.Run("Kurniawan", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			SayHello("Kurniawan")
+		}
+	})
+}
+
+func BenchmarkSayHello(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		SayHello("Eko")
+	}
+}
+
+func BenchmarkSayHelloKurniawan(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		SayHello("Kurniawan")
+	}
+}
+
+func TestTableSayHello(t *testing.T) {
 	tests := []struct {
 		name     string
 		request  string
