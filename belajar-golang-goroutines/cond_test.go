@@ -26,6 +26,7 @@ func TestCond(t *testing.T) {
 		go WaitCondition(i)
 	}
 
+	// jalan satu satu
 	go func() {
 		for i := 0; i < 10; i++ {
 			time.Sleep(1 * time.Second)
@@ -33,10 +34,11 @@ func TestCond(t *testing.T) {
 		}
 	}()
 
-	//go func() {
-	//	time.Sleep(1 * time.Second)
-	//	cond.Broadcast()
-	//}()
+	// jalan semuanya
+	// go func() {
+	// 	time.Sleep(1 * time.Second)
+	// 	cond.Broadcast()
+	// }()
 
 	group.Wait()
 }
