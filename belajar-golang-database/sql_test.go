@@ -24,6 +24,21 @@ func TestExecSql(t *testing.T) {
 	fmt.Println("Success insert new customer")
 }
 
+func TestExecManySql(t *testing.T) {
+	db := GetConnection()
+	defer db.Close()
+
+	ctx := context.Background()
+
+	script := "INSERT INTO customer(id, name, email, balance, rating, birth_date, married, created_at) VALUES('budi', 'Budi', 'Budi@gemail.com', '')"
+	_, err := db.ExecContext(ctx, script)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Success insert new customer")
+}
+
 func TestQuerySql(t *testing.T) {
 	db := GetConnection()
 	defer db.Close()
