@@ -215,6 +215,7 @@ func TestTransaction(t *testing.T) {
 		fmt.Println("Comment Id ", id)
 	}
 
+	// di rollback awokwokwoko
 	err = tx.Rollback()
 	if err != nil {
 		panic(err)
