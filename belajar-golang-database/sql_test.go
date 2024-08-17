@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"fmt"
 	"strconv"
-	_ "strconv"
 	"testing"
 	"time"
 )
