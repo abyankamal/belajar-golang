@@ -3,8 +3,9 @@ package main_test
 import (
 	_ "embed"
 	"fmt"
+	"io/fs"
 	_ "io/fs"
-	_ "os"
+	"os"
 	"testing"
 )
 
@@ -17,4 +18,14 @@ var version2 string
 func TestString(t *testing.T) {
 	fmt.Println(version)
 	fmt.Println(version2)
+}
+
+//go:embed logo.png
+var logo []byte
+
+func TestByte(t *testing.T) {
+	err := os.WriteFile("logo_new.png", logo, fs.ModePerm)
+	if err != nil {
+		panic(err)
+	}
 }
