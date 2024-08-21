@@ -2,7 +2,6 @@ package main_test
 
 import (
 	"embed"
-	_ "embed"
 	"fmt"
 	"io/fs"
 	"os"
