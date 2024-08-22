@@ -34,7 +34,7 @@ func TestResponseCodeInvalid(t *testing.T) {
 }
 
 func TestResponseCodeValid(t *testing.T) {
-	request := httptest.NewRequest("GET", "http://localhost:8080/?name=Eko", nil)
+	request := httptest.NewRequest("GET", "http://localhost:8080/?name=Abyan", nil)
 	recorder := httptest.NewRecorder()
 
 	ResponseCode(recorder, request)
