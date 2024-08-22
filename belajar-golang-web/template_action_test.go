@@ -31,7 +31,7 @@ func TemplateActionOperator(writer http.ResponseWriter, request *http.Request) {
 	t := template.Must(template.ParseFiles("./templates/comparator.gohtml"))
 	t.ExecuteTemplate(writer, "comparator.gohtml", map[string]interface{}{
 		"Title":      "Template Action Operator",
-		"FinalValue": 50,
+		"FinalValue": 80,
 	})
 }
 
