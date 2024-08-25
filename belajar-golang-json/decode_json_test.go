@@ -7,7 +7,7 @@ import (
 )
 
 func TestDecodeJSON(t *testing.T) {
-	jsonString := `{"FirstName":"Muhammad","MiddleName":"Abyan","LastName":"Kamal","Age":22,"Married":false,"Hobbies":null,"Addresses":null}`
+	jsonString := `{"FirstName":"Muhammad","MiddleName":"Abyan","LastName":"Kamal","Age":22,"Married":false}`
 	jsonBytes := []byte(jsonString)
 
 	customer := &Customer{}
