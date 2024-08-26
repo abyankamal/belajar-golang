@@ -1,10 +1,10 @@
 package controller
 
 import (
+	"belajar-golang-restful-api/helper"
+	"belajar-golang-restful-api/models/web"
+	"belajar-golang-restful-api/service"
 	"net/http"
-	"programmerzamannow/belajar-golang-restful-api/helper"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
-	"programmerzamannow/belajar-golang-restful-api/service"
 	"strconv"
 
 	"github.com/julienschmidt/httprouter"
