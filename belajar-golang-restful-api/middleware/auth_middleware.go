@@ -15,7 +15,7 @@ func NewAuthMiddleware(handler http.Handler) *AuthMiddleware {
 }
 
 func (middleware *AuthMiddleware) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	if "RAHASIA" == request.Header.Get("X-API-Key") {
+	if request.Header.Get("X-API-Key") ==  "RAHASIA"  {
 		// ok
 		middleware.Handler.ServeHTTP(writer, request)
 	} else {
